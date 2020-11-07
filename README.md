@@ -9,7 +9,12 @@ ESP32 basierte CO2-Ampel für Schulen
 * Die Pinleisten von beiden Seiten unten an den ESP anlöten.
 * Die Pinleiste vom DHT22 mit einer Zange abknipsen und die Pin-Rest aus den Löchern entfernen.
 * Den Stecker-Anschluss vom Z19B mit einer Zange abknipsen.
-* Abstandsbolzen von unten an die Platine schrauben
+* Abstandsbolzen von unten an die Platine schrauben <br>
+
+WICHTIGE HINWEISE: 
+1. Auf dem Schaltbild ist die Nummerierung a-j umgekehrt im Vergleich zur Platine
+1. Die Verkabelung exakt einhalten, ansonsten passt das Case nicht
+
 * Den ESP, die Widerstände und die LEDs nach dem Schaltbild auf der Platine verlöten (LED-Beine möglichst lang lassen, damit die LEDs variabel im Case plaziert werden können). Bei den Leds darauf achten, dass die Kathode (kurzes Beinchen, flache Seite) wie im Schaltbild rechts ist/mit Widerstand und Gnd/- verbunden ist.
 * Alle Kabelverbindungen auf der Platine verlöten.
 * Für den DHT22 drei und den Z19B vier relativ lange Kabel (ca. 10 cm) wählen (sie werden nicht direkt auf der Platine verlötet) und nach dem Schaltplan an die Sensoren und auf die Platine löten.
