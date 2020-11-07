@@ -31,7 +31,7 @@ ESP32 basierte CO2-Ampel für Schulen
     * Heltec ESP32 Dev-Boards
     * SimpleTimer
 * Arduino-Code herunterladen
-* In der Hauptdatei Webkit32CO2.ino müssen folgende Daten eingetragen werden:
+* In der Hauptdatei CO2-Ampel.ino müssen folgende Daten eingetragen werden:
   * BlynkServer[], BlynkServerPort[] (optional, nur falls ein eigener Server verwendet wird) 
   * auth[]: Hier den Auth-Token aus der Blynk-App eintragen (s. unten)
   * SSID/WIFI_PW 1-3: Hier die SSIDs und Passwörter für 3 verschiene Netzwerke eingeben (Zuhause, Schule, ...)
@@ -44,7 +44,7 @@ ESP32 basierte CO2-Ampel für Schulen
   * Projektname wählen
   * Als Device ESP32 Dev Board wählen
   * Create
-* Oben auf die Mutter klicken und den Auth Token per Mail senden lassen. Diesen Token in der Webkit32.ino-Datei bei auth[] eintragen
+* Oben auf die Mutter klicken und den Auth Token per Mail senden lassen. Diesen Token in der CO2-Ampel.ino bei auth[] eintragen
 * Mit dem "Plus" Elemente auf der Oberfläche hinzufügen
   * z.B. Labeled Value zur Anzeige der CO2-Konzentration.
   * Als Input V0 wählen und Aktualisierungsrate auf 10 sec
@@ -54,7 +54,7 @@ ESP32 basierte CO2-Ampel für Schulen
     * V2: Feuchtigkeit
   * Butten zum Neustart (V11) oder Kalibrieren (V10) hinzufügen
 * Oben rechts "Start"-Knopf
-* Wenn eigener Blynk-Server verwendet wird (https://github.com/blynkkk/blynk-server) dann in der Webkit32CO2.ino "BlynkServer[]" und "BlynkServerPort[]" anpassen. 
+* Wenn eigener Blynk-Server verwendet wird (https://github.com/blynkkk/blynk-server) dann in der CO2-Ampel.ino "BlynkServer[]" und "BlynkServerPort[]" anpassen. 
 ## Case
 * 3D-Modell-Vorlage herunterladen und nach eigenen Wünschen anpassen
 * Board auf dem Boden verschrauben
