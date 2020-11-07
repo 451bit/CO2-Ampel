@@ -15,7 +15,7 @@ WICHTIGE HINWEISE:
 1. Auf dem Schaltbild ist die Nummerierung a-j umgekehrt im Vergleich zur Platine
 1. Die Verkabelung exakt einhalten, ansonsten passt das Case nicht
 
-* Den ESP, die Widerstände und die LEDs nach dem Schaltbild auf der Platine verlöten (LED-Beine möglichst lang lassen, damit die LEDs variabel im Case plaziert werden können). Bei den Leds darauf achten, dass die Kathode (kurzes Beinchen, flache Seite) wie im Schaltbild rechts ist/mit Widerstand und Gnd/- verbunden ist.
+* Den ESP, die Widerstände und die LEDs nach dem Schaltbild auf der Platine verlöten (LED-Beine möglichst lang lassen, damit die LEDs variabel im Case plaziert werden können). Bei den Leds darauf achten, dass die Kathode (kurzes Beinchen, abgeflachte Seite) wie im Schaltbild rechts ist/mit Widerstand und Gnd/- verbunden ist.
 * Alle Kabelverbindungen auf der Platine verlöten.
 * Für den DHT22 drei und den Z19B vier relativ lange Kabel (ca. 10 cm) wählen (sie werden nicht direkt auf der Platine verlötet) und nach dem Schaltplan an die Sensoren und auf die Platine löten.
 ## Programmierung
