@@ -4,6 +4,7 @@ Temp/Humid-Sensor: DHT22/AM2302 (https://www.amazon.de/DHT22-AM2302-Digital-Temp
 3 x LED 5mm (red, yellow, green) for 3,3 V (https://www.ebay.de/itm/10-x-3mm-5mm-Diffused-LED-White-Red-Green-Blue-Orange-Yellow-Bi-RGB-Arduino-UK/153013273135?var=453037615172&hash=item23a04d422f:g:hwgAAOSwhOVa8GBI)
 3 x 47 Ohm resistor (https://www.amazon.de/Widerstand-Verwendbar-Resistor-Suitable-A2401/dp/B07KX4LZB6/ref=sr_1_6?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=widerstand+47+ohm&qid=1604682670&sr=8-6)
 Proto Board (https://www.amazon.de/gp/product/B081YK5Z2Z/ref=ppx_yo_dt_b_asin_title_o07_s00?ie=UTF8&psc=1)
+Zusätzliche Abstandsbolzen (https://www.amazon.de/gp/product/B07CG36VYC/ref=ox_sc_act_title_1?smid=A2F7JN9V2AWTSH&psc=1)
 Diverse Kabel (https://www.amazon.de/gp/product/B07PRGFW5Z/ref=ppx_yo_dt_b_asin_title_o07_s00?ie=UTF8&psc=1)
 
 Micro-USB-Kabel + USB-Netzteil
