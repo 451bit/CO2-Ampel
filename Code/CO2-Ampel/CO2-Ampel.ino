@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#define BLYNK_SSL_USE_LETSENCRYPT
+//#define BLYNK_SSL_USE_LETSENCRYPT
 #include "heltec.h"
 #include <WiFiMulti.h>
 #include <BlynkSimpleEsp32_SSL.h>
