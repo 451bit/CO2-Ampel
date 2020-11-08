@@ -12,7 +12,7 @@ ESP32 basierte CO2-Ampel für Schulen
 ![Bild 2](/Bilder/02.jpg)
 
 * Mit einem Multimeter an allen benachbarten Pins sicherstellen, dass keine Verbindung zwischen den Pins besteht (Widerstand sehr hoch)
-* Die Pinleiste vom DHT22 mit einer Zange abknipsen und die Pin-Rest aus den Löchern entfernen.
+* Die Pinleiste vom DHT22 mit einer Zange abknipsen und die Pin-Rest aus den Löchern entfernen (Lötzinn natürlich vorher erwärmen).
 
 ![Bild 3](/Bilder/03.jpg)
 ![Bild 4](/Bilder/04.jpg)
@@ -33,11 +33,11 @@ WICHTIGE HINWEISE: Die Verkabelung exakt einhalten, ansonsten passt das Case evt
  
 ![Bild 8](/Bilder/08.jpg)
  
- * Den ESP komplett in die Platine einlassen und von der Unterseite verlöten (ansonsten sitzt er zu hoch für das Case)
+ * Den ESP komplett in die Platine einlassen und von der Unterseite verlöten (ansonsten sitzt er zu hoch für das Case, evtl mit Tesa festkleben)
  
 ![Bild 9](/Bilder/09.jpg)
  
-* Alle Kabelverbindungen auf der Unterseite der Platine verlöten. Sollte auf der Rückseite der Platine gemacht werden (Auf dem Bild sind 5V- und GND- Leiste anders als im Schaltbild verlötet).
+* Alle Kabelverbindungen auf der Unterseite der Platine verlöten (auf dem Bild sind 5V- und GND- Leiste anders als im Schaltbild verlötet).
 
 ![Bild 10](/Bilder/10.jpg)
 
