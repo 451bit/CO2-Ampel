@@ -9,7 +9,7 @@ ESP32 basierte CO2-Ampel für Schulen
 * Die Pinleisten von beiden Seiten unten an den ESP anlöten. VORSICHT bei den Pins am Anschlusskabel des Displays. Der Lötkolben darf das Kabel auf keinen Fall berühren. Darauf achten, dass die Pinleisten möglichst vertikel stehen.
 
 ![Bild 1](/Bilder/01.jpg)
-Bild 01 / 02
+![Bild 2](/Bilder/02.jpg)
 
 * Mit einem Multimeter an allen benachbarten Pins sicherstellen, dass keine Verbindung zwischen den Pins besteht (Widerstand sehr hoch)
 * Die Pinleiste vom DHT22 mit einer Zange abknipsen und die Pin-Rest aus den Löchern entfernen.
