@@ -30,7 +30,7 @@ WICHTIGE HINWEISE:
   * Werkzeuge -> Board -> Boardverwalter
   * Suche nach "Heltec ESP32"
   * "Heltec ESP32 Series Dev-boards" installieren und Boardverwalter schließen
-  * Werkzeute -> Board -> Heltec ESP32 Arduino -> WiFi Kit 32
+  * Werkzeuge -> Board -> Heltec ESP32 Arduino -> WiFi Kit 32
 * Bibliotheken einbinden
   * Werkzeuge -> Bibliotheken verwalten
   * Folgende Bibliotheken installieren:
@@ -39,13 +39,15 @@ WICHTIGE HINWEISE:
     * ESP32 AnalogWrite
     * Heltec ESP32 Dev-Boards
     * SimpleTimer
-* Arduino-Code herunterladen
+* Den ESP per USB-Kabel mit dem PC verbinden und unter Werkzeuge -> Port den korrekten COM-Port für den ESP wählen (meist nicht COM1) 
+* Arduino-Code herunterladen und die Datei CO2-Ampel.ino in der Arduino-IDE öffnen.
 * In der Hauptdatei CO2-Ampel.ino müssen folgende Daten eingetragen werden:
   * BlynkServer[], BlynkServerPort[] (optional, nur falls ein eigener Server verwendet wird) 
   * auth[]: Hier den Auth-Token aus der Blynk-App eintragen (s. unten)
   * SSID/WIFI_PW 1-3: Hier die SSIDs und Passwörter für 3 verschiene Netzwerke eingeben (Zuhause, Schule, ...)
   * ggf Pinbelegung ändern
   * Unter Timer können die Timer angepasst werden
+* Sketch auf den ESP übertragen
 ## Blynk einrichten
 * Blynk-App herunterladen
 * Login oder Account erstellen
