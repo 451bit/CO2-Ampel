@@ -13,9 +13,8 @@ ESP32 basierte CO2-Ampel für Schulen
 * Abstandsbolzen von unten an die Platine schrauben <br>
 
 
-WICHTIGE HINWEISE: 
-* Die Verkabelung exakt einhalten, ansonsten passt das Case evtl. nicht.
-<br>
+WICHTIGE HINWEISE: Die Verkabelung exakt einhalten, ansonsten passt das Case evtl. nicht.
+
 * Den ESP, die Widerstände und die LEDs nach dem Schaltbild auf der Platine verlöten.
  * LED-Beine möglichst lang lassen, damit die LEDs variabel im Case plaziert werden können und darauf achten, dass die Kathode (kurzes Beinchen, abgeflachte Seite) wie im Schaltbild rechts ist/mit Widerstand und Gnd/- verbunden ist.
  * Den ESP komplett in die Platine einlassen und von der Unterseite verlöten (ansonsten sitzt er zu hoch für das Case)
