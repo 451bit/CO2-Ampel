@@ -6,7 +6,7 @@ ESP32 basierte CO2-Ampel für Schulen
 * Blynk einrichten
 * Case
 ## Bau
-* Die Pinleisten von beiden Seiten unten an den ESP anlöten. VORSICHT bei den Pins am Anschlusskabel des Displays. Der Lötkolben darf das Kabel auf keinen Fall berühren. Darauf achten, dass die Pinleisten möglichst vertikel stehen.
+* Die Pinleisten von beiden Seiten unten an den ESP anlöten. VORSICHT bei den Pins am Anschlusskabel des Displays. Der Lötkolben darf das Kabel auf keinen Fall berühren. Darauf achten, dass die Pinleisten möglichst vertikal stehen.
 
 ![Bild 1](/Bilder/01.jpg)
 ![Bild 2](/Bilder/02.jpg)
