@@ -1,3 +1,18 @@
+/*
+  CO2-Ampel
+
+  ESP32 liest CO2-, Temperatur- und Feuchtigkeit aus und zeigt die Werte auf dem Display an. Anhand des CO2-Wertes ändert sich zudem 
+  die Farbe der LEDs.
+  Optinal können die Daten zu einem Blynk-Server hochgeladen werden.
+
+
+  Created 08 11 2020
+  By Philipp Watermann
+  
+  https://github.com/451bit/CO2-Ampel
+
+*/
+
 #include <Arduino.h>
 //#define BLYNK_SSL_USE_LETSENCRYPT
 #include "heltec.h"
