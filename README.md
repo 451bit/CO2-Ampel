@@ -14,36 +14,36 @@ ESP32 basierte CO2-Ampel für Schulen
 * Mit einem Multimeter an allen benachbarten Pins sicherstellen, dass keine Verbindung zwischen den Pins besteht (Widerstand sehr hoch)
 * Die Pinleiste vom DHT22 mit einer Zange abknipsen und die Pin-Rest aus den Löchern entfernen.
 
-Bild 03/04
-
+![Bild 3](/Bilder/03.jpg)
+![Bild 4](/Bilder/04.jpg)
 
 * Den Stecker-Anschluss vom Z19B mit einer Zange abknipsen.
 
-Bild 05/06
+![Bild 5](/Bilder/05.jpg)
+![Bild 6](/Bilder/06.jpg)
 
 * Abstandsbolzen von unten an die Platine schrauben <br>
 
-Bild 07
-
+![Bild 7](/Bilder/07.jpg)
 
 WICHTIGE HINWEISE: Die Verkabelung exakt einhalten, ansonsten passt das Case evtl. nicht.
 
 * Den ESP, die Widerstände und die LEDs nach dem Schaltbild auf der Platine verlöten.
  * LED-Beine möglichst lang lassen, damit die LEDs variabel im Case plaziert werden können und darauf achten, dass die Kathode (kurzes Beinchen, abgeflachte Seite) wie im Schaltbild rechts ist/mit Widerstand und Gnd/- verbunden ist.
  
-Bild 08
+![Bild 8](/Bilder/08.jpg)
  
  * Den ESP komplett in die Platine einlassen und von der Unterseite verlöten (ansonsten sitzt er zu hoch für das Case)
  
-Bild 09
+![Bild 9](/Bilder/09.jpg)
  
 * Alle Kabelverbindungen auf der Unterseite der Platine verlöten. Sollte auf der Rückseite der Platine gemacht werden (Auf dem Bild sind 5V- und GND- Leiste anders als im Schaltbild verlötet).
 
-Bild 10
+![Bild 10](/Bilder/10.jpg)
 
 * Für den DHT22 drei und den Z19B vier relativ lange Kabel (ca. 10 cm) wählen (sie werden nicht direkt auf der Platine verlötet) und nach dem Schaltplan an die Unterseite der Sensoren und auf die Platine löten.
 
-Bild 11
+![Bild 11](/Bilder/11.jpg)
 
 ## Programmierung
 * Arduino-IDE herunterladen (https://www.arduino.cc/)
