@@ -26,7 +26,7 @@ ESP32 basierte CO2-Ampel für Schulen
 
 ![Bild 7](/Bilder/07.jpg)
 
-WICHTIGE HINWEISE: Die Verkabelung exakt einhalten, ansonsten passt das Case evtl. nicht.
+WICHTIGE HINWEISE: Die Verkabelung exakt wie im Schaltplan einhalten (nicht wie teilweise auf den Bildern), ansonsten passt das Case evtl. nicht. D
 
 * Den ESP, die Widerstände und die LEDs nach dem Schaltbild auf der Platine verlöten.
  * LED-Beine möglichst lang lassen, damit die LEDs variabel im Case plaziert werden können und darauf achten, dass die Kathode (kurzes Beinchen, abgeflachte Seite) wie im Schaltbild rechts ist/mit Widerstand und Gnd/- verbunden ist.
@@ -37,7 +37,7 @@ WICHTIGE HINWEISE: Die Verkabelung exakt einhalten, ansonsten passt das Case evt
  
 ![Bild 9](/Bilder/09.jpg)
  
-* Alle Kabelverbindungen auf der Unterseite der Platine verlöten (auf dem Bild sind 5V- und GND- Leiste anders als im Schaltbild verlötet).
+* Alle Kabelverbindungen auf der Unterseite der Platine verlöten (auf dem Bild sind 5V- und GND- Leiste anders als im Schaltplan verlötet, bitte an den Schaltplan halten).
 
 ![Bild 10](/Bilder/10.jpg)
 
