@@ -3,7 +3,8 @@ ESP32 basierte CO2-Ampel für Schulen
 ## Inhalt
 * Bau
 * Programmierung
-* Blynk einrichten
+* Blynk-Server einrichten
+* HTTP-Server einrichten
 * Case
 ## Bau
 * Die Pinleisten von beiden Seiten unten an den ESP anlöten. VORSICHT bei den Pins am Anschlusskabel des Displays. Der Lötkolben darf das Kabel auf keinen Fall berühren. Darauf achten, dass die Pinleisten möglichst vertikal stehen.
@@ -69,7 +70,7 @@ WICHTIGE HINWEISE: Die Verkabelung exakt wie im Schaltplan einhalten (nicht wie 
   * BlynkServer[], BlynkServerPort[] (optional, nur falls ein eigener Server verwendet wird) 
   * auth[]: Hier den Auth-Token aus der Blynk-App eintragen (s. unten)
   * SSID/WIFI_PW 1-3: Hier die SSIDs und Passwörter für 3 verschiene Netzwerke eingeben (Zuhause, Schule, ...)
-  * ggf Pinbelegung ändern
+  * Ggf sensorName, sensorLocation apiKeyValue und serverName anpassen, falls man vorhat, die Daten auf einen Server in einer DB zu speichern
   * Unter Timer können die Aktualisierungsraten für Sensoren und Upload angepasst werden
 * Sketch auf den ESP übertragen
 ## Blynk einrichten
@@ -90,6 +91,8 @@ WICHTIGE HINWEISE: Die Verkabelung exakt wie im Schaltplan einhalten (nicht wie 
   * Butten zum Neustart (V11) oder Kalibrieren (V10) hinzufügen
 * Oben rechts "Start"-Knopf
 * Wenn eigener Blynk-Server verwendet wird (https://github.com/blynkkk/blynk-server), dann in der CO2-Ampel.ino "BlynkServer[]" und "BlynkServerPort[]" anpassen. 
+## HTTP-Server einrichten
+* Anleitung folgt
 ## Case
 * 3D-Modell-Vorlage herunterladen und nach eigenen Wünschen anpassen
 * Board einsetzen und Sensoren wie im Bild von Oben in die Öffnungen schieben 
