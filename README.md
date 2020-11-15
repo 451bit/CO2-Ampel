@@ -65,12 +65,12 @@ WICHTIGE HINWEISE: Die Verkabelung exakt wie im Schaltplan einhalten (nicht wie 
     * SimpleTimer
 * Den ESP per USB-Kabel mit dem PC verbinden und unter Werkzeuge -> Port den korrekten COM-Port für den ESP wählen (meist nicht COM1) 
 * Arduino-Code herunterladen und die Datei CO2-Ampel.ino in der Arduino-IDE öffnen.
-* In der Hauptdatei CO2-Ampel.ino müssen folgende Daten eingetragen werden:
+* In der Hauptdatei CO2-Ampel.ino müssen folgende Daten eingetragen werden (nur, falls die Daten online gestellt werden sollen):
   * BlynkServer[], BlynkServerPort[] (optional, nur falls ein eigener Server verwendet wird) 
   * auth[]: Hier den Auth-Token aus der Blynk-App eintragen (s. unten)
   * SSID/WIFI_PW 1-3: Hier die SSIDs und Passwörter für 3 verschiene Netzwerke eingeben (Zuhause, Schule, ...)
   * ggf Pinbelegung ändern
-  * Unter Timer können die Timer angepasst werden
+  * Unter Timer können die Aktualisierungsraten für Sensoren und Upload angepasst werden
 * Sketch auf den ESP übertragen
 ## Blynk einrichten
 * Blynk-App herunterladen
@@ -89,9 +89,9 @@ WICHTIGE HINWEISE: Die Verkabelung exakt wie im Schaltplan einhalten (nicht wie 
     * V2: Feuchtigkeit
   * Butten zum Neustart (V11) oder Kalibrieren (V10) hinzufügen
 * Oben rechts "Start"-Knopf
-* Wenn eigener Blynk-Server verwendet wird (https://github.com/blynkkk/blynk-server) dann in der CO2-Ampel.ino "BlynkServer[]" und "BlynkServerPort[]" anpassen. 
+* Wenn eigener Blynk-Server verwendet wird (https://github.com/blynkkk/blynk-server), dann in der CO2-Ampel.ino "BlynkServer[]" und "BlynkServerPort[]" anpassen. 
 ## Case
 * 3D-Modell-Vorlage herunterladen und nach eigenen Wünschen anpassen
 * Board auf dem Boden verschrauben
-* Sensoren von innen durch die Öffnungen stecken und mit Heißkleber fixieren.
-* Deckel aufsetzen, hierbei darauf achten, dass die LEDs durch die Löcher passen
+* Sensoren von innen durch die Öffnungen stecken und ggf. mit Heißkleber fixieren.
+* Deckel aufsetzen. Hierbei müssen die LEDs leicht verbogen werden
