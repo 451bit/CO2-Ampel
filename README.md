@@ -24,7 +24,7 @@ ESP32 basierte CO2-Ampel für Schulen
 
 * Abstandsbolzen wie auf dem Bild an die Platine schrauben <br>
 
-![Bild 7](/Bilder/07.jpg)
+![Bild 7](/Bilder/07a.jpg)
 
 WICHTIGE HINWEISE: Die Verkabelung exakt wie im Schaltplan einhalten (nicht wie teilweise auf den Bildern), ansonsten passt das Case evtl. nicht. D
 
