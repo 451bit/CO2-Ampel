@@ -22,7 +22,7 @@ ESP32 basierte CO2-Ampel für Schulen
 ![Bild 5](/Bilder/05.jpg)
 ![Bild 6](/Bilder/06.jpg)
 
-* Abstandsbolzen von unten an die Platine schrauben <br>
+* Abstandsbolzen wie auf dem Bild an die Platine schrauben <br>
 
 ![Bild 7](/Bilder/07.jpg)
 
@@ -92,6 +92,11 @@ WICHTIGE HINWEISE: Die Verkabelung exakt wie im Schaltplan einhalten (nicht wie 
 * Wenn eigener Blynk-Server verwendet wird (https://github.com/blynkkk/blynk-server), dann in der CO2-Ampel.ino "BlynkServer[]" und "BlynkServerPort[]" anpassen. 
 ## Case
 * 3D-Modell-Vorlage herunterladen und nach eigenen Wünschen anpassen
-* Board auf dem Boden verschrauben
-* Sensoren von innen durch die Öffnungen stecken und ggf. mit Heißkleber fixieren.
-* Deckel aufsetzen. Hierbei müssen die LEDs leicht verbogen werden
+* Board einsetzen und Sensoren wie im Bild von Oben in die Öffnungen schieben 
+ * Keine Gewalt anwenden, wenn die Sensoren nicht passen müssen entweder überstehende Kabelreste von den Lötstellen entfernt oder am Case etwas gefeilt werden
+![Bild 12](/Bilder/12.jpg)
+* Board von unten verschrauben
+![Bild 14](/Bilder/14.jpg)
+* LEDs wie im Bild oben zurechtbiegen, Deckel aufsetzen, von oben verschrauben
+![Bild 13](/Bilder/13.jpg)
+![final](/Bilder/final.jpg)
