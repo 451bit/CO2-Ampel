@@ -1,18 +1,3 @@
-/*
-  CO2-Ampel
-
-  ESP32 liest CO2-, Temperatur- und Feuchtigkeit aus und zeigt die Werte auf dem Display an. Anhand des CO2-Wertes ändert sich zudem 
-  die Farbe der LEDs.
-  Optinal können die Daten zu einem Blynk-Server hochgeladen werden.
-
-
-  Created 08 11 2020
-  By Philipp Watermann
-  
-  https://github.com/451bit/CO2-Ampel
-
-*/
-
 #include <Arduino.h>
 //#define BLYNK_SSL_USE_LETSENCRYPT
 #include "heltec.h"
@@ -23,14 +8,20 @@
 #include "DHT.h"
 // Temp-Sensor Typ
 #define DHTTYPE DHT22
+#include <HTTPClient.h>
 
 // Blynk Daten
-// BlynkServer und -Port leer lassen, falls der Standard-Blynk-Server verwendet werden soll. Ansonsten die URL und Port des eigenen Servers eintragen
-// Wenn auf dem eigenen Server ein LetsEncrypt-Zertifikat verwendet wird, dann Zeile 2 "#define BLYNK_SSL_USE_LETSENCRYPT" auskommentieren
+// BlynkServer leer lassen, falls der Standard-Blynk-Server verwendet werden soll. Ansonsten die URL und Port des eigenen Servers eintragen
+// Wenn auf dem eigenen Server ein LetsEncrypt-Zertifikat verwendet wird, dann Zeile 2 "#define BLYNK_SSL_USE_LETSENCRYPT" aktivieren
 char BlynkServer[] = "";
 uint16_t BlynkServerPort = 9443;
-char auth[] = "abcdefg1234";
+char auth[] = "";
 
+// Server Daten für den Upload auf einen eigenen Server (zur Darstellung auf Homepage)
+String sensorName = "************";
+String sensorLocation = "************";
+String apiKeyValue = "";
+const char* serverName = "";
 
 // HIER DIE WIFI-DATEN EINGEBEN
 String SSID_1 = "************";
@@ -60,11 +51,13 @@ byte cmdCal[9] = {0xFF, 0x01, 0x87, 0x00, 0x00, 0x00, 0x00, 0x00, 0x78};  // Kal
 char response[9];  // Antwort des Sensors
 
 // Timer
-int TimerWarmup = 180; // Warumup-Timer
+int TimerWarmup = 60; // Warumup-Timer
 SimpleTimer TimerRefresh; // Timer zum Aktualisieren der Daten
 int TimerRefreshInterval = 10;
 SimpleTimer TimerWifi; // Timer zur Prüfung der Netzwerkverbindung
 int TimerWifiInterval = 10;
+SimpleTimer TimerUpload; // Timer zum Upload der Daten
+int TimerUploadInterval = 30;
 
 // Wifi-Daten. Hier muss nichts eingetragen werden
 WiFiMulti wifiMulti;
@@ -78,9 +71,12 @@ void setup() {
   initOLED();
   initLED();
   initDHT();
-  initWifiBlynk();
+  initWifi();
+  initBlynk();
   warumup();
   TimerRefresh.setInterval(TimerRefreshInterval * 1000, refresh);
+  TimerWifi.setInterval(TimerWifiInterval * 1000, checkConnection);
+  TimerUpload.setInterval(TimerUploadInterval * 1000, upload);
 }
 
 // OTA und Timer abfragen
@@ -88,6 +84,7 @@ void loop() {
   ArduinoOTA.handle();
   TimerRefresh.run();
   TimerWifi.run();
+  TimerUpload.run();
   delay(1000);
 }
 
@@ -98,4 +95,13 @@ void refresh() {
   displayData();
   LEDStatus();
   writeDataSerial();
+}
+
+void upload(){
+  uploadBlynk();
+  char empty[] = "";
+  if (memcmp(serverName, empty, 1)) {
+    // Eigener Server
+    uploadServer();
+  }   
 }

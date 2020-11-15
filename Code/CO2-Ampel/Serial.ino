@@ -19,7 +19,7 @@ void writeDataSerial() {
   }
 
   if (Blynk.connected()) {
-    Serial.println("Blynk connected to Server " + String(BlynkServer) + " with Token " + String(auth));
+    Serial.println("Blynk connected to Server " + String(BlynkServer));
   } else {
     Serial.println("Not connected to Blynk");
   }
