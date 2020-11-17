@@ -34,7 +34,7 @@ WICHTIGE HINWEISE: Die Verkabelung exakt wie im Schaltplan einhalten (nicht wie 
  
 ![Bild 8](/Bilder/08.jpg)
  
-	* Den ESP komplett in die Platine einlassen und von der Unterseite verlöten (ansonsten sitzt er zu hoch für das Case, evtl mit Tesa festkleben)
+* Den ESP komplett in die Platine einlassen und von der Unterseite verlöten (ansonsten sitzt er zu hoch für das Case, evtl mit Tesa festkleben)
  
 ![Bild 9](/Bilder/09.jpg)
  
