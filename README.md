@@ -103,12 +103,12 @@ WICHTIGE HINWEISE: Die Verkabelung exakt wie im Schaltplan einhalten (nicht wie 
     reading_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
 
-	* Die readData.php und showData.php in einen öffentlichen Ordner auf dem Webserver kopieren
-	* Die db-config.ini in einen nicht öffentlich zugänglichen Ordner auf dem Webserver kopieren
-	* In der db-config.ini
-		* api_key_value mit einer zufälligen Zeichenfolge belegen, die identisch in der Configuration.h unter ApiKeyValueConfig  einzutragen ist
-		* DB-Passwort eintragen
-	* In den zwei *.php-Dateien den relativen Pfad zur db-config.ini eintragen (Zeile 2 bzw. 3)
+* Die readData.php und showData.php in einen öffentlichen Ordner auf dem Webserver kopieren
+* Die db-config.ini in einen nicht öffentlich zugänglichen Ordner auf dem Webserver kopieren
+* In der db-config.ini
+	* api_key_value mit einer zufälligen Zeichenfolge belegen, die identisch in der Configuration.h unter ApiKeyValueConfig  einzutragen ist
+	* DB-Passwort eintragen
+* In den zwei *.php-Dateien den relativen Pfad zur db-config.ini eintragen (Zeile 2 bzw. 3)
 
 ## Case
 * 3D-Modell-Vorlage herunterladen und nach eigenen Wünschen anpassen
