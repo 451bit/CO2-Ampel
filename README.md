@@ -67,12 +67,7 @@ WICHTIGE HINWEISE: Die Verkabelung exakt wie im Schaltplan einhalten (nicht wie 
     * SimpleTimer
 * Den ESP per USB-Kabel mit dem PC verbinden und unter Werkzeuge -> Port den korrekten COM-Port für den ESP wählen (meist nicht COM1) 
 * Arduino-Code herunterladen und die Datei CO2-Ampel.ino in der Arduino-IDE öffnen.
-* In der Hauptdatei CO2-Ampel.ino müssen folgende Daten eingetragen werden (nur, falls die Daten online gestellt werden sollen):
-  * BlynkServer[], BlynkServerPort[] (optional, nur falls ein eigener Server verwendet wird) 
-  * auth[]: Hier den Auth-Token aus der Blynk-App eintragen (s. unten)
-  * SSID/WIFI_PW 1-3: Hier die SSIDs und Passwörter für 3 verschiene Netzwerke eingeben (Zuhause, Schule, ...)
-  * Ggf sensorName, sensorLocation apiKeyValue und serverName anpassen, falls man vorhat, die Daten auf einen Server in einer DB zu speichern
-  * Unter Timer können die Aktualisierungsraten für Sensoren und Upload angepasst werden
+* In der Configuration.h müssen die Zugangsdaten für WiFi bzw Blynk und den Webserver eingetragen werden (nur, falls die Daten online gestellt werden sollen):
 * Sketch auf den ESP übertragen
 ## Blynk einrichten
 * Blynk-App herunterladen
@@ -81,7 +76,7 @@ WICHTIGE HINWEISE: Die Verkabelung exakt wie im Schaltplan einhalten (nicht wie 
   * Projektname wählen
   * Als Device ESP32 Dev Board wählen
   * Create
-* Oben auf die Mutter klicken und den Auth Token per Mail senden lassen. Diesen Token in der CO2-Ampel.ino bei auth[] eintragen
+* Oben auf die Mutter klicken und den Auth Token per Mail senden lassen. Diesen Token in der Configuration.h bei auth[] eintragen
 * Mit dem "Plus" Elemente auf der Oberfläche hinzufügen
   * z.B. Labeled Value zur Anzeige der CO2-Konzentration.
   * Als Input V0 wählen und Aktualisierungsrate auf 10 sec
@@ -91,9 +86,30 @@ WICHTIGE HINWEISE: Die Verkabelung exakt wie im Schaltplan einhalten (nicht wie 
     * V2: Feuchtigkeit
   * Butten zum Neustart (V11) oder Kalibrieren (V10) hinzufügen
 * Oben rechts "Start"-Knopf
-* Wenn eigener Blynk-Server verwendet wird (https://github.com/blynkkk/blynk-server), dann in der CO2-Ampel.ino "BlynkServer[]" und "BlynkServerPort[]" anpassen. 
+* Wenn eigener Blynk-Server verwendet wird (https://github.com/blynkkk/blynk-server), dann in der Configuration.h anpassen. 
 ## HTTP-Server einrichten
-* Anleitung folgt
+* Datenbank auf einem Webspace erstellen mit Name co2ampel
+ * Datenbankbenutzer co2ampel
+ * Datenbankpasswort selbst wählen
+ * In phpmyadmin die Datenbank wählen und mit folgendem SQL-Befehl eine Tabelle erstellen
+ 
+ CREATE TABLE SensorData (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    sensor VARCHAR(30) NOT NULL,
+    location VARCHAR(30) NOT NULL,
+    valueco2 VARCHAR(10),
+    valuetemp VARCHAR(10),
+    valuehumid VARCHAR(10),
+    reading_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+
+ * Die readData.php und showData.php in einen öffentlichen Ordner auf dem Webserver kopieren
+ * Die db-config.ini in einen nicht öffentlich zugänglichen Ordner auf dem Webserver kopieren
+ * In der db-config.ini
+  * api_key_value mit einer zufälligen Zeichenfolge belegen, die identisch in der Configuration.h unter ApiKeyValueConfig  einzutragen ist
+  * DB-Passwort eintragen
+ * In den zwei *.php-Dateien den relativen Pfad zur db-config.ini eintragen (Zeile 2 bzw. 3)
+
 ## Case
 * 3D-Modell-Vorlage herunterladen und nach eigenen Wünschen anpassen
 * Board einsetzen und Sensoren wie im Bild von Oben in die Öffnungen schieben 
