@@ -30,6 +30,8 @@ String SSID_2 = SSID2Config;
 String WIFI_PW_2 = WiFiPwConfig2;
 String SSID_3 = SSID3Config;
 String WIFI_PW_3 = WiFiPwConfig3;
+String OTAString = "CO2-Ampel-" + String(SensorNameConfig);
+const char* OTAName = OTAString.c_str();
 
 //Pin-Belegung
 int Ser2TX = 23;  // Serial 2 TX Pin to CO2-Sensor RX
