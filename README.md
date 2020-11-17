@@ -93,7 +93,7 @@ WICHTIGE HINWEISE: Die Verkabelung exakt wie im Schaltplan einhalten (nicht wie 
 	* Datenbankpasswort selbst wählen
 	* In phpmyadmin die Datenbank wählen und mit folgendem SQL-Befehl eine Tabelle erstellen
  
- CREATE TABLE SensorData (
+    CREATE TABLE SensorData (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     sensor VARCHAR(30) NOT NULL,
     location VARCHAR(30) NOT NULL,
@@ -101,7 +101,7 @@ WICHTIGE HINWEISE: Die Verkabelung exakt wie im Schaltplan einhalten (nicht wie 
     valuetemp VARCHAR(10),
     valuehumid VARCHAR(10),
     reading_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)
+    )
 
 * Die readData.php und showData.php in einen öffentlichen Ordner auf dem Webserver kopieren
 * Die db-config.ini in einen nicht öffentlich zugänglichen Ordner auf dem Webserver kopieren
