@@ -8,21 +8,25 @@ void initBlynk() {
     // Standard-Blynk-Server
     Blynk.config(auth);
   }
-
   // Versucht Verbindung zu Blynk aufzubauen
   Blynk.connect();
 }
+
+void BlynkRun(){
+  Blynk.run();
+}
+
 
 void uploadBlynk() {
  
   if (!Blynk.connected()) {
     // Verbindung neu aufbauen
-    myWiFi();
     Blynk.connect();
+    delay(100);
   }
   else {
     // Hochladen der Daten zu Blynk bei sinnvollen Werten
-    Blynk.run();
+    
     if (CO2ppm > 300 && CO2ppm < 4999) {
       Blynk.virtualWrite(V0, CO2ppm);
     }

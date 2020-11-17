@@ -1,5 +1,5 @@
 #include <Arduino.h>
-//#define BLYNK_SSL_USE_LETSENCRYPT
+#include "Configuration.h"
 #include "heltec.h"
 #include <WiFiMulti.h>
 #include <BlynkSimpleEsp32_SSL.h>
@@ -13,23 +13,23 @@
 // Blynk Daten
 // BlynkServer leer lassen, falls der Standard-Blynk-Server verwendet werden soll. Ansonsten die URL und Port des eigenen Servers eintragen
 // Wenn auf dem eigenen Server ein LetsEncrypt-Zertifikat verwendet wird, dann Zeile 2 "#define BLYNK_SSL_USE_LETSENCRYPT" aktivieren
-char BlynkServer[] = "";
-uint16_t BlynkServerPort = 9443;
-char auth[] = "";
+char BlynkServer[] = BlynkServerConfig;
+uint16_t BlynkServerPort = BlynkServerPortConfig;
+char auth[] = BlynkAuthConfig;
 
 // Server Daten für den Upload auf einen eigenen Server (zur Darstellung auf Homepage)
-String sensorName = "************";
-String sensorLocation = "************";
-String apiKeyValue = "";
-const char* serverName = "";
+String sensorName = SensorNameConfig;
+String sensorLocation = SensorLocationConfig;
+String apiKeyValue = ApiKeyValueConfig;
+const char* serverName = ServerNameConfig;
 
 // HIER DIE WIFI-DATEN EINGEBEN
-String SSID_1 = "************";
-String WIFI_PW_1 = "************";
-String SSID_2 = "************";
-String WIFI_PW_2 = "************";
-String SSID_3 = "************";
-String WIFI_PW_3 = "************";
+String SSID_1 = SSID1Config;
+String WIFI_PW_1 = WiFiPwConfig1;
+String SSID_2 = SSID2Config;
+String WIFI_PW_2 = WiFiPwConfig2;
+String SSID_3 = SSID3Config;
+String WIFI_PW_3 = WiFiPwConfig3;
 
 //Pin-Belegung
 int Ser2TX = 23;  // Serial 2 TX Pin to CO2-Sensor RX
@@ -55,7 +55,7 @@ int TimerWarmup = 60; // Warumup-Timer
 SimpleTimer TimerRefresh; // Timer zum Aktualisieren der Daten
 int TimerRefreshInterval = 10;
 SimpleTimer TimerWifi; // Timer zur Prüfung der Netzwerkverbindung
-int TimerWifiInterval = 10;
+int TimerWifiInterval = 1;
 SimpleTimer TimerUpload; // Timer zum Upload der Daten
 int TimerUploadInterval = 30;
 
@@ -75,7 +75,7 @@ void setup() {
   initBlynk();
   warumup();
   TimerRefresh.setInterval(TimerRefreshInterval * 1000, refresh);
-  TimerWifi.setInterval(TimerWifiInterval * 1000, checkConnection);
+  TimerWifi.setInterval(TimerWifiInterval * 1000, ConnectWifi);
   TimerUpload.setInterval(TimerUploadInterval * 1000, upload);
 }
 
@@ -85,7 +85,8 @@ void loop() {
   TimerRefresh.run();
   TimerWifi.run();
   TimerUpload.run();
-  delay(1000);
+  BlynkRun();
+  delay(100);
 }
 
 // Methode für Refresh-Timer
@@ -96,7 +97,6 @@ void refresh() {
   LEDStatus();
   writeDataSerial();
 }
-
 void upload(){
   uploadBlynk();
   char empty[] = "";

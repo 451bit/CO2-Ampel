@@ -17,21 +17,14 @@ void initWifi() {
   SSID_3.toCharArray(ssid_char, 50);
   WIFI_PW_3.toCharArray(pw_char, 50);
   wifiMulti.addAP(ssid_char, pw_char);
-  myWiFi();
+  ConnectWifi();
 }
 
 // Baut Wifi- und Blynk-Verbindung auf
-void myWiFi() {
+void ConnectWifi() {
   // Netzwerk verbinden
   if (wifiMulti.run() == WL_CONNECTED) {
     MYSSID = WiFi.SSID();
     initOTA();
   }
-}
-
-// Prüft ob Verbindung zu Blynk und Internet
-void checkConnection() {
-  if (!wifiMulti.run() == WL_CONNECTED) {
-    myWiFi();
-  }  
 }

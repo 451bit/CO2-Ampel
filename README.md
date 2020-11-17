@@ -46,11 +46,12 @@ WICHTIGE HINWEISE: Die Verkabelung exakt wie im Schaltplan einhalten (nicht wie 
 
 ![Bild 11](/Bilder/11.jpg)
 
-## Programmierung
+## Programmierung (bezieht sich auf Arduino-IDE auf Windows, auf MacOS sind die Einstellungen teilweise an anderen Stellen)
 * Arduino-IDE herunterladen (https://www.arduino.cc/)
 * Repos in der IDE einbinden:
   * Datei -> Voreinstellungen
   * Bei "Zusätzliche Boardverwalter-URLs" folgendes Einfügen: https://resource.heltec.cn/download/package_heltec_esp32_index.json
+  * IDE neustarten
 * Board auswählen
   * Werkzeuge -> Board -> Boardverwalter
   * Suche nach "Heltec ESP32"
