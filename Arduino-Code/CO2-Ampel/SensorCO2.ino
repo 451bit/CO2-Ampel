@@ -29,5 +29,12 @@ void readSensor() {
   // Berechnet CO2 und schreibt Wert in Variable CO2ppm
   int responseHigh = (int)response[2];
   int responseLow = (int)response[3];
-  CO2ppm = (256 * responseHigh) + responseLow;
+  int CO2raw = (256 * responseHigh) + responseLow;
+  if (CO2raw > 200 && CO2raw < 4999) {
+    CO2ppm = CO2raw;
+    CO2Status = true;    
+  } else {
+    CO2ppm = 0;
+    CO2Status = false;
+  }
 }

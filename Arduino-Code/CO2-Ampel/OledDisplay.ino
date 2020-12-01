@@ -20,19 +20,19 @@ void displayData() {
 
   // Messwerte anzeigen
   Heltec.display->setFont(ArialMT_Plain_16);
-  if (CO2ppm > 200 && CO2ppm < 4999) {
+  if (CO2Status) {
     Heltec.display->drawString(0, 15, "CO2: " + String(CO2ppm) + " ppm");
   } else {
     Heltec.display->drawString(0, 15, "CO2-Error");
   }
 
-  if (Temp > -20 && Temp < 100) {
+  if (TempStatus) {
     Heltec.display->drawString(0, 30, "Temp: " + String(Temp) + " °C");
   } else {
     Heltec.display->drawString(0, 30, "Temp-Error");
   }
 
-  if (Humid > 0 && Humid < 100) {
+  if (HumidStatus) {
     Heltec.display->drawString(0, 45, "Humid.: " + String(Humid) + " %");
   } else {
     Heltec.display->drawString(0, 45, "Humid-Error");

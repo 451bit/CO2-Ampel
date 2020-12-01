@@ -17,3 +17,10 @@
 #define  WiFiPwConfig2 "" // Passwort für Wifi 2
 #define  SSID3Config ""               // SSID für Wifi 3
 #define  WiFiPwConfig3 ""             // // Passwort für Wifi 3
+
+// Influx
+#define INFLUXDB_URL "https://pfad.zur.influxdb.com:8086" // Influx URL und Port
+#define INFLUXDB_TOKEN "***********" // Influx Token, aus Influx auslesen
+#define INFLUXDB_ORG "co2amepl" // Influx Org Name
+#define INFLUXDB_BUCKET "co2ampel" // Influx Bucket
+#define TZ_INFO "CET-1CEST,M3.5.0,M10.5.0/3" // Standardzeitzone, hier Mitteleuropa

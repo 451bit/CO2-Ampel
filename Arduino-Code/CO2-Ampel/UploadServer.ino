@@ -1,23 +1,23 @@
 void uploadServer() {
   // Sinnvolle Werte der Sensoren?
-  int CO2ppmOk;
-  int TempOk;
-  int HumidOk;
+  String CO2ppmOk;
+  String TempOk;
+  String HumidOk;
 
-  if (CO2ppm > 300 && CO2ppm < 4999) {
-    CO2ppmOk = CO2ppm;
+  if (CO2Status) {
+    CO2ppmOk = String(CO2ppm);
   } else {
-    CO2ppmOk = 0;
+    CO2ppmOk = "";
   }
-  if (Temp > -10 && Temp < 99) {
-    TempOk = Temp;
+  if (TempStatus) {
+    TempOk = String(Temp);
   } else {
-    TempOk = 0;
+    TempOk = "";
   }
-  if (Humid > 1 && Humid < 100) {
-    HumidOk = Humid;
+  if (HumidStatus) {
+    HumidOk = String(Humid);
   } else {
-    HumidOk = 0;
+    HumidOk = "";
   }
 
   // Hochladen der Daten auf eigenen Server
@@ -32,8 +32,8 @@ void uploadServer() {
     
     // HTTP POST-Daten erzeugen
     String httpRequestData = "api_key=" + apiKeyValue + "&sensor=" + sensorName
-                             + "&location=" + sensorLocation + "&valueco2=" + String(CO2ppmOk)
-                             + "&valuetemp=" + String(TempOk) + "&valuehumid=" + String(HumidOk) + "";
+                             + "&location=" + sensorLocation + "&valueco2=" + CO2ppmOk
+                             + "&valuetemp=" + TempOk + "&valuehumid=" + HumidOk + "";
 
     // HTTP POST-Daten senden
     int httpResponseCode = http.POST(httpRequestData);

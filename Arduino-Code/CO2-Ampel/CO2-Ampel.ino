@@ -9,27 +9,36 @@
 // Temp-Sensor Typ
 #define DHTTYPE DHT22
 #include <HTTPClient.h>
+#include <InfluxDbClient.h>
+#include <InfluxDbCloud.h>
 
-// Blynk Daten
-// BlynkServer leer lassen, falls der Standard-Blynk-Server verwendet werden soll. Ansonsten die URL und Port des eigenen Servers eintragen
-// Wenn auf dem eigenen Server ein LetsEncrypt-Zertifikat verwendet wird, dann Zeile 2 "#define BLYNK_SSL_USE_LETSENCRYPT" aktivieren
+// Blynk Variablen
 char BlynkServer[] = BlynkServerConfig;
 uint16_t BlynkServerPort = BlynkServerPortConfig;
 char auth[] = BlynkAuthConfig;
 
-// Server Daten für den Upload auf einen eigenen Server (zur Darstellung auf Homepage)
+// Server Variablen
 String sensorName = SensorNameConfig;
 String sensorLocation = SensorLocationConfig;
 String apiKeyValue = ApiKeyValueConfig;
 const char* serverName = ServerNameConfig;
 
-// HIER DIE WIFI-DATEN EINGEBEN
+
+// Influx Variablen
+InfluxDBClient client(INFLUXDB_URL, INFLUXDB_ORG, INFLUXDB_BUCKET, INFLUXDB_TOKEN, InfluxDbCloud2CACert);
+Point sensor("data_point");
+
+// Wifi Variablen
 String SSID_1 = SSID1Config;
 String WIFI_PW_1 = WiFiPwConfig1;
 String SSID_2 = SSID2Config;
 String WIFI_PW_2 = WiFiPwConfig2;
 String SSID_3 = SSID3Config;
 String WIFI_PW_3 = WiFiPwConfig3;
+WiFiMulti wifiMulti;
+String MYSSID = "";
+char ssid_char[50];
+char pw_char[50];
 String OTAString = "CO2-Ampel-" + String(SensorNameConfig);
 const char* OTAName = OTAString.c_str();
 
@@ -46,6 +55,7 @@ DHT dht(DHTPIN, DHTTYPE);
 int CO2ppm = 0;
 int Temp = 0;
 int Humid = 0;
+boolean CO2Status = false, TempStatus = false, HumidStatus = false;
 
 // Kommandos zum Lesen und Kalibrieren des Sensors
 byte cmd[9] = {0xFF, 0x01, 0x86, 0x00, 0x00, 0x00, 0x00, 0x00, 0x79};  // Lesebefehl
@@ -53,19 +63,13 @@ byte cmdCal[9] = {0xFF, 0x01, 0x87, 0x00, 0x00, 0x00, 0x00, 0x00, 0x78};  // Kal
 char response[9];  // Antwort des Sensors
 
 // Timer
-int TimerWarmup = 60; // Warumup-Timer
+int TimerWarmup = 10; // Warumup-Timer
 SimpleTimer TimerRefresh; // Timer zum Aktualisieren der Daten
 int TimerRefreshInterval = 10;
 SimpleTimer TimerWifi; // Timer zur Prüfung der Netzwerkverbindung
 int TimerWifiInterval = 1;
 SimpleTimer TimerUpload; // Timer zum Upload der Daten
 int TimerUploadInterval = 30;
-
-// Wifi-Daten. Hier muss nichts eingetragen werden
-WiFiMulti wifiMulti;
-String MYSSID = "";
-char ssid_char[50];
-char pw_char[50];
 
 // Initialisierung und Timer zum Aktualisieren der Sensordaten Starten
 void setup() {
@@ -75,6 +79,7 @@ void setup() {
   initDHT();
   initWifi();
   initBlynk();
+  initFlux();
   warumup();
   TimerRefresh.setInterval(TimerRefreshInterval * 1000, refresh);
   TimerWifi.setInterval(TimerWifiInterval * 1000, ConnectWifi);
@@ -91,7 +96,7 @@ void loop() {
   delay(100);
 }
 
-// Methode für Refresh-Timer
+// Refresh-Timer-Methode
 void refresh() {
   readSensor();
   readDHT();
@@ -99,11 +104,15 @@ void refresh() {
   LEDStatus();
   writeDataSerial();
 }
-void upload(){
+
+// Upload-Timer-Methode
+void upload() {
   uploadBlynk();
   char empty[] = "";
   if (memcmp(serverName, empty, 1)) {
     // Eigener Server
     uploadServer();
-  }   
+    // Influx-Upload
+    uploadFlux();
+  }
 }

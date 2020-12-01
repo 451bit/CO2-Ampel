@@ -16,7 +16,6 @@ void BlynkRun(){
   Blynk.run();
 }
 
-
 void uploadBlynk() {
  
   if (!Blynk.connected()) {
@@ -27,13 +26,13 @@ void uploadBlynk() {
   else {
     // Hochladen der Daten zu Blynk bei sinnvollen Werten
     
-    if (CO2ppm > 300 && CO2ppm < 4999) {
+    if (CO2Status) {
       Blynk.virtualWrite(V0, CO2ppm);
     }
-    if (Temp > -10 && Temp < 99) {
+    if (TempStatus) {
       Blynk.virtualWrite(V1, Temp);
     }
-    if (Humid > 1 && Humid < 100) {
+    if (HumidStatus) {
       Blynk.virtualWrite(V2, Humid);
     }
   }
